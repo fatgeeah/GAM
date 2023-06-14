@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    background-color:#D8D4F2;
+}
+.nav {
+    width: 100%;
+    height: 65px;
+    background-color: #8EB897;
+}
+.nav a{
+    font-family: 'Bebas Neue', sans-serif;   
+    text-decoration: none;
+    color:black;
+    padding: 12px 15px;
+    font-size: 20px;
+    transition: 0.6s all;
+}
+.nav a:hover{
+    color: #023C40;
+    background-color: #D8D4F2;
+}
+.nav .search{
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top:-5px;
+    margin-left: 700px;
+}
+.header h2{
+    font-weight: 800;
+    font-size: 35px;
+    margin-top:25px;
+    margin-left: 500px;
+    color: black;
+    font-family: 'Josefin Sans', sans-serif;
+}
+h6{
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top:15px;
+    margin-left: 600px;
+    font-size: 40;
+    color: black;
+}
+.card-header{
+    background-color:#8EB897;
+}
+.card-header h8{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 35px;
+    margin-left: 20px ;
+}
+.card-header h9{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 35px;
+    color: white;
+    margin-left: 5px;
+}
+.table-responsive .table th{
+    font-family: 'Josefin Sans', sans-serif;
+     color: black;
+}
+.table-responsive .table{
+   background-color: #D8D4F2;
+   color: #023C40;
+   font-size: 25px;
+   font-family: 'Josefin Sans', sans-serif;
+}
+.table-responsive{
+    background-color:#D8D4F2;
+}
+.container-fluid{
+    background-color: #D8D4F2;
+}
+.btn1:hover{
+    border: 3px 5px  #8EB897 ;
+    background-color: #044389 ;
+}
+.btn1{
+    margin-right: 5px;
+    border: 3px 5px #335C81;
+    background-color: #8EB897 ;
+    border-radius: 5px;
+    height: 50px;
+    width: 50px;
+    color: white;
+}
+.btn2:hover{
+    color: #6E0D25;
+}
+ .btn2{
+    border: 3px 5px #335C81;
+    border-radius: 5px;
+    height: 50px;
+    width: 50px ;
+    background-color: white;
+} 
+.btn2 i{
+    color: black;
+}
+ .btn3:hover{
+    border: 3px 5px  #8EB897 ;
+    background-color:#6E0D25;;
+}
+.btn3{
+    margin-left: 10px;
+    border: 3px 5px #335C81;
+    background-color: #B5C2B7;
+    border-radius: 5px;
+    height: 50px;
+    width: 50px;
+    color: white;
+} 
+.btn4:hover{
+    border: 3px 5px  #335C81; 
+    background-color:  white ;
+}
+.btn4{
+    background-color: #8EB897 ;
+    font-size: 20px;
+    margin-left: 10px;
+    border: 3px 5px #335C81;
+    border-radius: 5px;
+    color: black;
+} 
+.search.search-add-wrapper{
+ color: white;
+}
+.modal{
+    background-color: #94a4b1;
+}
+.modal-dialog{
+    border-radius: 5px;
+    margin-top: 150px ;
+    background-color: white;
+}
+.modal-content{
+    border-radius: 5px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 25px;
+    color: #335C81;
+    background-color: white;
+}

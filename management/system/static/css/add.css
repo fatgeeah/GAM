@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@500&display=swap');
+.nav-item a{
+    font-family: 'PT Serif', serif;
+}
+.txt_field input{
+    font-family: 'Domine', serif;
+    margin-left: 50px;
+    display: inline-block;
+    float: left;
+    background: white;
+    color: black;
+    font-size: 20px;
+}
+.txt_field label{
+    font-family: 'Domine', serif;
+    margin-right: 50px;
+    font-size: 25px;
+    color: white;
+    display: inline-block;
+    float: left;
+    clear:left;
+    width:300px;
+}
+.container-fluid.container-fluid a{
+    font-family: 'Domine', serif;
+    font-size: 25px;
+    color:white;
+    font-weight: 800;
+}
+.header{
+    font-family: 'PT Serif', serif;
+    margin-top: 20px;
+    font-size: 35px;
+    font-weight: 900;
+    color : white;
+}
+h6{
+    font-size: 30px;
+    font-weight: 800;
+    color: black;
+}
+.card-header {
+    font-size: 45px;
+    font-weight:900;
+    color: white;
+}
+th{
+    font-size: 25px;
+    color: black;
+    font-weight: 800;
+}
+td{
+    font-size: 25px;
+    color: white;
+    font-weight: 600;
+}
+li{
+    color: white;
+    font-size: 30px;
+}
+h3{
+    font-family: 'PT Serif', serif;
+    color:black;
+    font-size: 40px;
+}
+h5{
+color: white;
+font-size: 35px;
+font-weight: 900;
+}
+button{
+    font-size: 20px;
+    margin-left: 50px;
+}
+.menu a{
+    margin-top: -40px;
+    margin-left: 200px;
+}
