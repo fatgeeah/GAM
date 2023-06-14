@@ -1,0 +1,94 @@
+{% load static %}
+<DOCTYPE html>
+    <html lang="en">
+        <head>
+        <title> Gamer Manangement System </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/add.css' %}" rel="stylesheet">
+        </head>
+        <body class="d-flex flex-column min-vh-100"> 
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="{% url 'index' %}">
+                    <i class="fa-solid fa-gamepad"></i> Gamer Management System
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav me-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'games' %}">
+                          <i class="fa-solid fa-bars"></i> All Gamers</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add' %}">
+                          <i class="fa-solid fa-plus"></i> Add Gamer 
+                        </a>
+                      </li>
+                    </div>    
+                </div>
+              </nav>
+<br>
+<h3 class="text-center m-4">Add a new Gamer to the System</h3>
+{% if success %}
+          <div class="alert alert-success" role="alert">
+            The new student added successfully.
+            <a href="{% url 'index' %}" class="alert-links"> Go Back,</a>
+          </div> 
+{% else %}
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="card border-success mb-3">
+                    <div class="card-header">
+                        <i class="fa-solid fa-user-headset"></i> Gamer Registeration
+                    </div>
+                    <div class="card-body">
+                      <div class="center"> 
+                          <form action="" method="post">   
+                            {% csrf_token %}
+                          <div class="txt_field">
+                              <label>Create a username : </label>
+                              <input type="text" name="username" id="username" required="required">
+                              <br>
+                            </div>
+                            <br>
+                           <div class="txt_field">
+                              <label>Enter your Firstname : </label>
+                              <input type="text" name="firstname" id="firstname" required="required">
+                              <br>
+                            </div>
+                            <br>
+                            <div class="txt_field">
+                              <label>Enter your Lastname : </label>
+                              <input type="text" name="lastname" id="lastname" required="required">
+                              <br>
+                            </div>
+                            <br>
+                            <div class="txt_field">
+                              <label>Enter your Email : </label>
+                              <input type="email" name="email" id="email" required="required">
+                              <br>
+                            </div>
+                            <br>
+                            <div class="txt_field">
+                              <label>Enter game type : </label>
+                              <input type="text" name="games" id="games" required="required">
+                              <br><br><br>
+                           
+                    <button type="submit" class="btn btn-primary"><a>Add Gamer</a></button>
+                    <div class="menu">
+                    <a href={% url 'index' %} class="btn btn-secondary">Cancel</a>
+                    </div>  
+                  </form>  
+                    </div>
+                  </div>
+            </div>
+        </div>    
+{% endif %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</head>
+<html>

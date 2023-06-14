@@ -1,0 +1,46 @@
+{% load static %}
+<DOCTYPE html>
+    <html lang="en">
+        <head>
+        <title> Gamer Manangement System </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/game101.css' %}" rel="stylesheet">
+        </head>
+        <body> 
+            <nav >
+              <div class="nav">
+                <a  href="{% url 'index' %}"><i class="fa-solid fa-gamepad"></i> Gamer Management System</a></li>
+                <a href="{% url 'games' %}"><i class="fa-solid fa-bars"></i> All Games</a></li>
+                <a href="{% url 'add' %}"><i class="fa-solid fa-plus"></i> Add Gamer </a></li>
+                <div class="search">
+                <form class="search-add-wrapper" method="POST" action="{% url 'search_games' %}"  style="margin-top: 20px;display: flex;">
+                  {% csrf_token %}  
+                  <input class="form-control me-1" type="search" placeholder="Search Games" aria-label="Search" name="searched">
+                  <button class="btn4" type="submit">Search</button>
+                </form> 
+              </div>
+                <br><br>
+                <center><div class="header"><h2><i class="fa-solid fa-headset" style="color:  #8EB897;"></i> GAM ~ Site for Gamers + Entertainers</h2></center>
+
+  {% for games in allgames %}
+        <div class="game">
+        <h1>{{games.game_names}}<h1>
+          <br>
+          <img src="{{games.gameThumbnails.url}}" class="img-fluid rounded-start" alt="{{games.game_names}}">
+          <br><br>
+          <div class="video-file">
+            <video width="320" height="240" controls>
+              <source src= "{{games.video.url}}" type="video/mp4"></source>
+              Your browser does not support the video tag
+          </video>
+        </div>
+          </div>
+  {% endfor %}
+ 
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        </body>
+    </head>
+    <html> 

@@ -1,0 +1,139 @@
+{% load static %}
+<DOCTYPE html>
+    <html lang="en">
+        <head>
+        <title>Gamer Manangement System </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/index102.css' %}" rel="stylesheet">
+        </head>
+        <body>
+            <div class="nav">
+              <a  href="{% url 'index' %}"><i class="fa-solid fa-gamepad"></i> Gamer Management System</a></li>
+              <a href="{% url 'games' %}"><i class="fa-solid fa-bars"></i> All Games</a></li>
+              <a href="{% url 'add' %}"><i class="fa-solid fa-plus"></i> Add Gamer </a></li>
+              <div class="search">
+              <form class="search-add-wrapper" method="POST" action="{% url 'search_games' %}"  style="margin-top: 20px;display: flex;">
+                {% csrf_token %}  
+                <input class="form-control me-1" type="search" placeholder="Search Games" style="color:white;font-size:15px;" aria-label="Search" name="searched">
+                <button class="btn4" type="submit">Search</button>
+              </form> 
+            </div>
+              <br><br>
+              <center><div class="header"><h2><i class="fa-solid fa-headset" style="color:  #8EB897;"></i> GAM ~ Site for Gamers + Entertainers</h2></center>
+  <div class="container-fluid">
+    <h6><i class="fa-sharp fa-solid fa-users" style="color:  #8EB897;" style="50px"></i> All Gamers</h6>
+<div class="row">
+  <div class="col-12"> 
+    {% if gamers %}
+  <div class="card bg-dark ms-4 mb-4">
+    <div class="card-header">
+      <h8><i class="fa-solid fa-user-gear" style="color:  white;"></h8></i><h9>Gamer's Records</h9>
+      <br><br>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <br>
+          <thead>
+            <tr>
+              <th scope="col">Gamer Username</th>
+              <th scope="col">Gamer Firstname</th>
+              <th scope="col">Gamer Lastname</th>
+              <th scope="col">Email</th>
+              <th scope="col">Gamer Games</th>
+              <th scope="col">INFO</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for gamer in gamers %}  
+            <tr>
+              <td>{{gamer.gamer_username}}</td>
+              <td>{{gamer.gamer_first_name }}</td>
+              <td>{{gamer.gamer_last_name}}</td>
+              <td>{{gamer.email}}</td>
+              <td>{{gamer.gamer_games}}</td>
+            <td>
+    <button type="button" class="btn1" href="{% url 'view_gamer' gamer.id %}" data-bs-toggle="modal"
+      data-bs-target="#myModal{{gamer.id}}">
+        <i class="fa-sharp fa-solid fa-circle-info"></i>
+    </button>
+  <div class="modal" id="myModal{{gamer.id}}" tabindex="-1" aria-labelledby="myModal1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            Gamer: {{gamer.gamer_first_name}} {{gamer.gamer_last_name}} 
+          </h5>
+  <div class="btn">
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true"></span>
+    </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <ul class="list-unstyled">
+      <br>
+      <li> Gamer Username:<strong>{{gamer.gamer_username }}</strong></li>
+      <br>
+      <li> Gamer Firstname:<strong>{{gamer.gamer_first_name }}</strong></li>
+      <br>
+      <li> Gamer Lastname:<strong>{{gamer.gamer_last_name}}</strong></li>
+      <br>
+      <li> Email:<strong>{{gamer.email }}</strong></li>
+      <br>
+      <li> Gamer's Games:<strong>{{gamer.gamer_games }}</strong></li>
+    </ul>
+  </div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primaryy" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      <a class="btn2" href={% url 'edit' gamer.id %}>
+        <i class="fa-solid fa-pen-to-square"></i>
+      </a>
+    <button type="button" class="btn3" data-bs-toggle="modal" data-bs-toggle="delete{{gamer.id}}">
+      <i class="fa-solid fa-trash"></i>
+    </button>
+    <div class="modal" id="deleteModal{{gamer.gamer_first_name}}" tabindex="-1" aria-labelledby="myModal2" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              Gamer: {{gamer.gamer_first_name}} {{gamer.gamer_last_name}}</h5>
+    <div class="btn">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+  <p>Are you sure you want to delete this gamer</p>
+  </div>
+<div class="modal-footer">
+  <form action="{% url 'delete' gamer.id %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Delete">
+  </form>
+    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </td>
+  </tr>
+    {% endfor %}
+  </tbody>
+ </table>
+</div>
+</p>
+</div>
+</div>
+  {% else %}
+   <h5 class="alert alert-light ms-4 me-4">No Gamer Records </h5>
+  {% endif %}
+    </div>
+  </div>
+ </div>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>  
+ </body>
+</html>

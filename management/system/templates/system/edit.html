@@ -1,0 +1,52 @@
+{% load static %}
+<DOCTYPE html>
+    <html lang="en">
+        <head>
+        <title> Gamer Manangement System </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/edit101.css' %}" rel="stylesheet">
+        </head>
+        <body class="d-flex flex-column min-vh-100"> 
+          <div class="nav">
+            <a  href="{% url 'index' %}"><i class="fa-solid fa-gamepad"></i> Gamer Management System</a></li>
+            <a href="{% url 'games' %}"><i class="fa-solid fa-bars"></i> All Games</a></li>
+            <a href="{% url 'add' %}"><i class="fa-solid fa-plus"></i> Add Gamer </a></li>
+            <div class="search">
+            <form class="search-add-wrapper" method="POST" action="{% url 'search_games' %}"  style="margin-top: 20px;display: flex;">
+              {% csrf_token %}  
+              <input class="form-control me-1" type="search" placeholder="Search Games" aria-label="Search" name="searched">
+              <button class="btn4" type="submit">Search</button>
+            </form> 
+          </div>
+              </nav>
+<br>
+ <div class="text"><h3>Update a Gamer on the System</h3>
+{% if success %}
+          <div class="alert alert-success" role="alert">
+            The new student updated successfully.
+            <a href="{% url 'index' %}" class="alert-links"> Go Back,</a>
+          </div> 
+{% else %}
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="card border-success mb-3">
+                    <div class="card-header">
+                        <i class="fa-sharp fa-solid fa-pen-to-square"></i> Update Gamer Records
+                    <div class="card-body">
+                     <form action="" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }} 
+                    <button type="submit" class="btn1">Update</button>
+                    <a href={% url 'index' %} class="btn2">Cancel</a>
+                    </form>  
+                    </div>
+                  </div>
+            </div>
+        </div>    
+{% endif %} 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</head>
+<html>
