@@ -22,10 +22,60 @@
               <br><br>
               <center>
                 {% if searched %}
+                <div class="head">
+                  <h2><i class="fa-solid fa-headset"></i> All Gamers that play the game you searched for {{searched}}</h2>
+                </div>     
+                <br/>
+                <div class="container-fluid">
+                  <h6><i class="fa-sharp fa-solid fa-users" style="color:  #8EB897;" style="50px"></i> All Gamers</h6>
+              <div class="row">
+                <div class="col-12">     
+                <div class="card bg-dark ms-4 mb-4">
+                  <div class="card-header">
+                    <h8><i class="fa-solid fa-user-gear" style="color:  white;"></h8></i><h9>Gamer's Records</h9>
+                    <br><br>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <br>
+                        <thead>
+                          <tr>
+                            <th scope="col">Gamer Username</th>
+                            <th scope="col">Gamer Firstname</th>
+                            <th scope="col">Gamer Lastname</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Gamer Games</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for  Gamer in allgamers %}
+                        <tr>
+                          <td>{{Gamer.gamer_username}}</td>
+                          <td>{{Gamer.gamer_first_name }}</td>
+                          <td>{{Gamer.gamer_last_name}}</td>
+                          <td>{{Gamer.email}}</td>
+                          <td>{{Gamer.gamer_games}}</td>
+                        <td>
+                {% endfor %}
+              </tbody>
+             </table>
+              {% else %}
+               <h5 class="alert alert-light ms-4 me-4">No Gamer Records </h5>
+              {% endif %}
+                </div>
+              </div>
+              </center>
+
+
+
+
+
+
+
+
+                {% comment %} {% if searched %}
                 <div class="header1">
                  <h2><i class="fa-solid fa-headset"></i> All Gamers that play the game you searched for {{searched}}</h2>
                   <br/>
-
                   <div class="container-fluid">
                     <h6><i class="fa-sharp fa-solid fa-users" style="color:  #8EB897;" style="50px"></i> All Gamers</h6>
                 <div class="row">
@@ -49,13 +99,13 @@
                             </tr>
                           </thead>
                           <tbody>
-                            {% for gamer in allgamers %}  
+                            {% for Gamer in allgamers %}  
                             <tr>
-                              <td>{{gamer.gamer_username}}</td>
-                              <td>{{gamer.gamer_first_name }}</td>
-                              <td>{{gamer.gamer_last_name}}</td>
-                              <td>{{gamer.email}}</td>
-                              <td>{{gamer.gamer_games}}</td>
+                              <td>{{Gamer.gamer_username}}</td>
+                              <td>{{Gamer.gamer_first_name }}</td>
+                              <td>{{Gamer.gamer_last_name}}</td>
+                              <td>{{Gamer.email}}</td>
+                              <td>{{Gamer.gamer_games}}</td>
                             <td>
                     <button type="button" class="btn btn-light me-1" href="{% url 'view_gamer' gamer.id %}" data-bs-toggle="modal"
                       data-bs-target="#myModal{{gamer.id}}">
@@ -77,15 +127,15 @@
                   <div class="modal-body">
                     <ul class="list-unstyled">
                       <br>
-                      <li> Gamer Username:<strong>{{gamer.gamer_username }}</strong></li>
+                      <li> Gamer Username:<strong>{{Gamer.gamer_username }}</strong></li>
                       <br>
-                      <li> Gamer Firstname:<strong>{{gamer.gamer_first_name }}</strong></li>
+                      <li> Gamer Firstname:<strong>{{Gamer.gamer_first_name }}</strong></li>
                       <br>
-                      <li> Gamer Lastname:<strong>{{gamer.gamer_last_name}}</strong></li>
+                      <li> Gamer Lastname:<strong>{{Gamer.gamer_last_name}}</strong></li>
                       <br>
-                      <li> Email:<strong>{{gamer.email }}</strong></li>
+                      <li> Email:<strong>{{Gamer.email }}</strong></li>
                       <br>
-                      <li> Gamer's Games:<strong>{{gamer.gamer_games }}</strong></li>
+                      <li> Gamer's Games:<strong>{{Gamer.gamer_games }}</strong></li>
                     </ul>
                   </div>
                 <div class="modal-footer">
@@ -100,12 +150,12 @@
                     <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-toggle="delete{{gamer.id}}">
                       <i class="fa-solid fa-trash"></i>
                     </button>
-                    <div class="modal" id="deleteModal{{gamer.gamer_first_name}}" tabindex="-1" aria-labelledby="myModal2" aria-hidden="true">
+                    <div class="modal" id="deleteModal{{Gamer.gamer_first_name}}" tabindex="-1" aria-labelledby="myModal2" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
                             <h5 class="modal-title">
-                              Gamer: {{gamer.gamer_first_name}} {{gamer.gamer_last_name}}</h5>
+                              Gamer: {{Gamer.gamer_first_name}} {{Gamer.gamer_last_name}}</h5>
                     <div class="btn">
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"></span>
@@ -138,20 +188,14 @@
                     </div>
                   </div>
                  </div>
-
-                  {% comment %} {% for gamer_games in gamer %}  
+                   {% for gamer_games in gamer %}  
                         {{gamer_id}}<br/>
-                  {% endfor %} {% endcomment %}
+                  {% endfor %} 
 
-
-      
                   {% else %}
                   <div class="header2">
                   <h2><i class="fa-solid fa-headset"></i> You forgot to enter a game you would like to search for</h2>
-  
-
-                {% endif %}
-
+                {% endif %} {% endcomment %}
             </body>
         </head>
         <html> 
